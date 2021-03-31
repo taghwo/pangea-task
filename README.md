@@ -87,4 +87,10 @@ For every webhook URL fired, a log is saved to database for ease of audit.
 Log contains: url, data, log('if error occured,it is stored here'), attempt('Number of attempts)
 ```
 
-
+## Test
+```sh
+All test cases can be found in tests/feature directory.
+Migrations should be run before executing test suite
+To execute all test suites run
+php artisan test
+```
