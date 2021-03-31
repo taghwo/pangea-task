@@ -1,67 +1,90 @@
-# Project Locker API
+# Pangea task
 
-Pangea Task API
-
-To build the app and run with docker compose
+# Requirements
 
 ```sh
-    docker-compose up --build -d
+    "php": "^7.3|^8.0",
+    "mysql": "^7",
 ```
 
-To view the list of container services that are running, use this docker-compose command
-
+# Installation
 ```sh
-    docker-compose ps
+   Clone the repo
+   https://github.com/taghwo/pangea-task
 ```
 
-To bash into the php container,
-
 ```sh
-    docker-compose exec php bash
+    Install composer dependencies by run command below
+    Composer Install
 ```
 
-To bash into the mysql db container,
-
 ```sh
-    docker-compose exec db bash
+    create a .env file on the root of the project, Copy and paste content of .env.example into .env file
 ```
 
-To stop docker container
 ```sh
-    docker-compose stop
+    add correct database credentials to .env file, like below
+    DB_CONNECTION=mysql
+    DB_HOST=127.0.0.1
+    DB_PORT=3306
+    DB_DATABASE=laravel
+    DB_USERNAME=root
+    DB_PASSWORD=
 ```
 
-To open the app endpoint, point to
 ```sh
-    http://0.0.0.0:80/
+Run migrations
+php artisan migrate
 ```
 
-To log a container, run `docker ps` to list all containers and their ID.
-Pick a container ID and run
+# Usage
 ```sh
-    docker logs <container-id>
+    To start the app run
+    php artisan server
+    this will start the server on port 127.0.0.1:8000
 ```
 
-# creating topic payload
+## App work flow
 ```sh
+    > Create a topic : Payload returns a unique identifier (UUID)
+    > Use UUID to subscribe to a topic
+    > Use UUID to publish to a topic
+    > On publishing to a topic, all subscribers of that topic will get notified via their webhook URL
+```
+
+# Payload samples
+```sh
+CreatE Topic
+Endpoint : /api/v1/topic
+HTTP Verb: `POST`
 {
 	"title":"Go duck duck"
 }
 ```
-# Published data
+
 ```sh
+Subsribe to topic
+Endpoint : /api/v1/subscribe/{uuid}
+HTTP Verb: `POST`
+{
+	"url":"https://b40bdfbbb509.ngrok.io"
+}
+```
+
+```sh
+Publish to topic
+Endpoint : /api/v1/publish/{uuid}
+HTTP Verb: `POST`
 {
     "name": "Taghwo",
     "age": "29"
 }
 ```
 
-# Subsriber request payload
+## NOTE
 ```sh
-{
-	"url":"https://b40bdfbbb509.ngrok.io"
-}
+For every webhook URL fired, a log is saved to database for ease of audit.
+Log contains: url, data, log('if error occured,it is stored here'), attempt('Number of attempts)
 ```
-
 
 

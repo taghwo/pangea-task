@@ -30,9 +30,8 @@ class WebhookTest extends TestCase
                                         ]);
     }
     /**
-     * A basic feature test example.
+     * Test the webhook interface
      *
-     * @return void
      */
     public function test_webhook()
     {
