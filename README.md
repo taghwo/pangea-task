@@ -1,5 +1,5 @@
 # Pangea task
-
+A simple webhook notification system built on PHP(Laravel) and MYSQL
 # Requirements
 
 ```sh
