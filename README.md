@@ -72,7 +72,7 @@ HTTP Verb: `POST`
 ```
 
 ```sh
-Publish to topics
+Publish to topic
 Endpoint : /api/v1/publish/{uuid}
 HTTP Verb: `POST`
 {
