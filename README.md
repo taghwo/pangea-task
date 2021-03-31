@@ -14,7 +14,7 @@
 ```
 
 ```sh
-    Install composer dependencies by run command below
+    Install composer dependencies by running the command below
     Composer Install
 ```
 
@@ -72,12 +72,12 @@ HTTP Verb: `POST`
 ```
 
 ```sh
-Publish to topic
+Publish to topics
 Endpoint : /api/v1/publish/{uuid}
 HTTP Verb: `POST`
 {
-    "name": "Taghwo",
-    "age": "29"
+   "message": "here and there",
+   "detail": "brick by brick they said"
 }
 ```
 
