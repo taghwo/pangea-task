@@ -52,7 +52,7 @@ php artisan migrate
     > On publishing to a topic, all subscribers of that topic will get notified via their webhook URL
 ```
 
-# Payload samples
+## Payload samples
 ```sh
 CreatE Topic
 Endpoint : /api/v1/topic
@@ -74,6 +74,16 @@ HTTP Verb: `POST`
 ```sh
 Publish to topic
 Endpoint : /api/v1/publish/{uuid}
+HTTP Verb: `POST`
+{
+   "message": "here and there",
+   "detail": "brick by brick they said"
+}
+```
+
+```sh
+Data received at webhook url tested with NGROK
+Endpoint : "https://b40bdfbbb509.ngrok.io"
 HTTP Verb: `POST`
 {
    "message": "here and there",
