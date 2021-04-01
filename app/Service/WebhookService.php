@@ -1,7 +1,6 @@
 <?php
 namespace App\Service;
 
-use App\Models\FailedWebHookNotification;
 use App\Models\WebHookNotificationLog;
 use Illuminate\Support\Facades\Http;
 
